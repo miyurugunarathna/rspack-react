@@ -1,17 +1,17 @@
-import { defineConfig } from "@rspack/cli";
-import rspack from "@rspack/core";
-import ReactRefreshPlugin from "@rspack/plugin-react-refresh";
+import { defineConfig } from '@rspack/cli';
+import rspack from '@rspack/core';
+import ReactRefreshPlugin from '@rspack/plugin-react-refresh';
 
-const isDev = process.env.NODE_ENV === "development";
-const targets = ["chrome >= 87", "edge >= 88", "firefox >= 78", "safari >= 14"];
+const isDev = process.env.NODE_ENV === 'development';
+const targets = ['chrome >= 87', 'edge >= 88', 'firefox >= 78', 'safari >= 14'];
 
 export default defineConfig({
   context: __dirname,
   entry: {
-    main: "./src/main.tsx",
+    main: './src/main.tsx',
   },
   resolve: {
-    extensions: ["...", ".tsx", ".ts", ".jsx"],
+    extensions: ['...', '.tsx', '.ts', '.jsx'],
   },
   module: {
     rules: [
@@ -19,16 +19,16 @@ export default defineConfig({
         test: /\.(jsx?|tsx?)$/,
         use: [
           {
-            loader: "builtin:swc-loader",
+            loader: 'builtin:swc-loader',
             options: {
               jsc: {
                 parser: {
-                  syntax: "typescript",
+                  syntax: 'typescript',
                   tsx: true,
                 },
                 transform: {
                   react: {
-                    runtime: "automatic",
+                    runtime: 'automatic',
                     development: isDev,
                     refresh: isDev,
                   },
@@ -42,7 +42,7 @@ export default defineConfig({
     ],
   },
   plugins: [
-    new rspack.HtmlRspackPlugin({ template: "./index.html" }),
+    new rspack.HtmlRspackPlugin({ template: './index.html' }),
     isDev && new ReactRefreshPlugin(),
   ].filter(Boolean),
 });
