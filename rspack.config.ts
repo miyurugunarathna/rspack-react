@@ -17,6 +17,11 @@ export default defineConfig({
   module: {
     rules: [
       {
+        test: /\.css$/,
+        use: ['postcss-loader'],
+        type: 'css',
+      },
+      {
         test: /\.(jsx?|tsx?)$/,
         use: [
           {
@@ -47,4 +52,7 @@ export default defineConfig({
     isDev && new ReactRefreshPlugin(),
     TanStackRouterRspack({ target: 'react', autoCodeSplitting: true }),
   ].filter(Boolean),
+  experiments: {
+    css: true,
+  },
 });

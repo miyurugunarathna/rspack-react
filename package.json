@@ -20,9 +20,13 @@
     "react-refresh": "^0.17.0"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.5",
     "@tanstack/react-router": "^1.117.1",
     "@tanstack/react-router-devtools": "^1.117.1",
+    "postcss": "^8.5.3",
+    "postcss-loader": "^8.1.1",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "tailwindcss": "^4.1.5"
   }
 }
